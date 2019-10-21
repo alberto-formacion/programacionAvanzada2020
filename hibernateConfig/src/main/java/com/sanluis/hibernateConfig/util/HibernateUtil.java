@@ -7,6 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
+import org.hibernate.tool.schema.Action;
 
 import com.sanluis.hibernateConfig.entity.Alumno;
 
@@ -27,6 +28,7 @@ public class HibernateUtil {
                 settings.put(Environment.FORMAT_SQL, "true");
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+//                settings.put(Environment.HBM2DDL_AUTO, Action.UPDATE);
                 
                 configuration.setProperties(settings);
                 
