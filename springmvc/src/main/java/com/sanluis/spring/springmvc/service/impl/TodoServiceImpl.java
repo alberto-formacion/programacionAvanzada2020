@@ -19,4 +19,16 @@ public class TodoServiceImpl implements TodoService{
 		return todoDAO.getTodos();
 	}
 
+	public Todo getTodoById(Integer id) {
+		return todoDAO.getTodoById(id);
+	}
+
+	public void createOrUpdateTodo(Todo todo) {
+		todoDAO.createOrUpdateTodo(todo);
+	}
+
+	public void deleteTodo(Todo todo) {
+		todoDAO.deleteTodo(todo);
+	}
+
 }
