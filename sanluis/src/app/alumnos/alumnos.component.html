@@ -1,0 +1,45 @@
+<div>
+    Nombre <input type="text" [(ngModel)]="alumno.nombre"> 
+</div>
+<div>
+    Apellidos <input type="text" [(ngModel)]="alumno.apellidos"> 
+</div>
+<div>
+    Email <input type="text" [(ngModel)]="alumno.email"> 
+</div>
+<div>
+    Telefono <input type="text" [(ngModel)]="alumno.telefono"> 
+</div>
+<div>
+    Cursos
+    <select multiple [(ngModel)]="alumno.cursos">
+        <option value="Matematicas">Matematicas</option>
+        <option value="Informatica">Informatica</option>
+        <option value="Lengua">Lengua</option>
+    </select>
+</div>
+<div>
+    <button (click)="addAlumno()">Añadir alumno</button>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Cursos</th>
+        </tr>
+        <tr *ngFor="let a of alumnos">
+            <td>{{a.nombre}}</td>
+            <td>{{a.apellidos}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.telefono}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let curso of a.cursos">{{curso}}</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
