@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-4" *ngFor="let usuario of usuarios">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img [src]="usuario.foto.large" class="card-img" alt="{{usuario.nombre}} {{usuario.apellido}}">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">{{usuario.nombre}} {{usuario.apellido}} <img src="https://www.countryflags.io/{{usuario.nacionalidad}}/shiny/16.png"></h5>
+            <p class="card-text">{{usuario.email}}</p>
+            <p class="card-text">{{usuario.telefono}}</p>
+            <p class="card-text">{{usuario.fechaNacimiento}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
