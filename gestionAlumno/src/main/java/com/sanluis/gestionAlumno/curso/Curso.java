@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -25,15 +23,9 @@ public class Curso {
 	private String nombre;
 	private String horas;
 	
-	@ManyToMany
-	@JoinTable(name = "alumnos_cursos",
-			joinColumns = {
-					@JoinColumn(name = "cursos_id")
-			},
-			inverseJoinColumns = {
-					@JoinColumn(name = "alumnos_id")
-			})
+
 	@JsonIgnore
+	@ManyToMany(mappedBy = "cursos")
 	private List<Alumno> alumnos = new ArrayList<>();
 	
 	public Long getId() {

@@ -3,11 +3,12 @@ package com.sanluis.gestionAlumno.alumno;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -25,7 +26,14 @@ public class Alumno {
 	private String telefono;
 	private String email;
 	
-	@ManyToMany(mappedBy = "alumnos", cascade = CascadeType.PERSIST)
+	@ManyToMany
+	@JoinTable(name = "alumnos_cursos",
+			joinColumns = {
+					@JoinColumn(name = "alumnos_id")
+			},
+			inverseJoinColumns = {
+					@JoinColumn(name = "cursos_id")
+			})
 	private List<Curso> cursos = new ArrayList<>();
 	
 	public Long getId() {
