@@ -1,13 +1,68 @@
 <div class="container-fluid">
   <div class="jumbotron mt-3">
     <h3>Servicios</h3>
-    <p></p>
+    <p>Los servicios es el elemento de angular donde vamos a tener la lógica de negocio, son consumidos por los componentes, que delegarán en ellos la responsabilidad de acceder a la información y la realización de operaciones con los datos.</p>
+    <div clas="row"><div class="col-10 offset-1 alert alert-warning"><em>Nota: como los servicios son algo que se suele usar desde varios componentes, muchos desarrolladores optan por crearlos dentro de un módulo compartido, que puede llamarse "shared" o algo parecido.</em></div></div>
+    <p>Para poder usar un servicio es necesario que lo añadas al módulo donde se encuentras los componentes que lo van a utilizar. Una vez hecho esto lo podrás usar en cualquiera de los componente del módulo.</p>
+    <p>Se añade en el array de providers:</p>
+    
+    <ul>
+      <li><code ngNonBindable>providers: [ServicioParaUtilizar]</code></li>
+    </ul>
+
+    <div clas="row"><div class="col-10 offset-1 alert alert-warning"><em>Nota: El provider que acabamos de declarar en el módulo es un array que también podremos declarar en un componente, con lo que podríamos asignar un servicio a un componente en concreto y no a un módulo completo.</em></div></div>
+    <p>Para utilizar un servicio hay que inyectarlo en el constructor del componente donde se va a utlizar.</p>
+
+    <ul>
+      <li><code ngNonBindable>constructor(private ServicioParaUtilizar)</code></li>
+    </ul>    
   </div>
 </div>
 
 <div class="container-fluid">
   <div class="jumbotron">
     <h3>Ajax en los Servicios</h3>
-    <p></p>
+    <p>Para poder hacer llamadas http debemos:</p>
+    <ol>
+      <li>Añadir el HttpClientModule en el módulo</li>
+      <li>
+        Añadir la dependencia en el servicio
+        <ul>
+            <li><code ngNonBindable>constructor(private http: HttpClient)</code></li>
+        </ul> 
+      </li>
+      <li>Con esto ya podemos utilizar los métodos para hacer peticiones</li>
+    </ol>
+    <p>Ejemplo de POST:</p>
+    <ul>
+        <li>
+          <code ngNonBindable>
+            postExample(test_object: ObjectType): Observable &lt;any&gt; &#123;<br/>
+            &nbsp;return this.http.post('http://jsonplaceholder.typicode.com/posts', &#123;<br/>
+            &nbsp;&nbsp;title: 'foo',<br/>
+            &nbsp;&nbsp;body: 'bar',<br/>
+            &nbsp;&nbsp;userId: 1<br/>
+            &nbsp;&#125;);<br/>
+            &#125;
+          </code>
+        </li>
+    </ul>
+    <p>Ejemplo GET:</p>
+    <ul>
+        <li>
+          <code ngNonBindable>
+            get(): Observable&lt;any&gt; &#123;<br/>
+            &nbsp;return this.http.get('https://api.github.com/users/seeschweiler');<br/>
+            &#125;
+          </code>
+        </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h3>Mas documentación</h3>
+    <p><a href="https://codingpotions.com/angular-servicios-llamadas-http">Mas info!</a></p>
   </div>
 </div>
