@@ -1,0 +1,19 @@
+<form [formGroup]="formulario">
+  <div>
+    <label>Nombre</label>
+    <input formControlName="nombre">
+    <div *ngIf="formulario.controls.nombre.touched && formulario.controls.nombre.status==='INVALID'">El nombre es obligatorio y tiene que tener como minimo 4 caracteres</div>
+  </div>
+  <div>
+    <label>Email</label>
+    <input formControlName="email">
+    <div *ngIf="formulario.controls.email.touched && formulario.controls.email.status==='INVALID'">El email no es valido</div>
+  </div>
+  <div>
+    <label>Edad</label>
+    <input formControlName="edad">
+    <div *ngIf="formulario.controls.edad.touched && formulario.controls.edad.status==='INVALID'">Hay que ser mayor de edad</div>
+  </div>
+  <button [disabled]="formulario.invalid" (click)="submit()">Guardar</button>
+</form>
+
