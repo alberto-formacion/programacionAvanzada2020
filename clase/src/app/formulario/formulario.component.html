@@ -1,0 +1,18 @@
+<form [formGroup]="formUsuario">
+  <div>
+    <label for="nombre">Nombre</label>
+    <input type="text" formControlName="nombre">
+    <div *ngIf="formUsuario.controls.nombre.touched && formUsuario.controls.nombre.status === 'INVALID'">
+      El nombre es requerido y tiene que tener mas de 3 caracteres
+    </div>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" formControlName="email">
+  </div>
+  <div>
+    <label for="edad">Edad</label>
+    <input type="number" formControlName="edad">
+  </div>
+  <button [disabled]="formUsuario.invalid" (click)="submit()">Enviar</button>
+</form>
