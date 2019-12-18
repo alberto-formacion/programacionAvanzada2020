@@ -16,4 +16,8 @@ export class PadreComponent implements OnInit {
     this.objetoDelPadre = new Objeto('aaa', 'bbb');
   }
 
+  recogerInfo(objeto: Objeto){
+    console.log(objeto);
+  }
+
 }

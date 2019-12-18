@@ -1,3 +1,4 @@
 <div>Componente Padre</div>
 <input type="text" [(ngModel)]="objetoDelPadre.x">
-<app-hijo [objetoEnElhijo]="objetoDelPadre"></app-hijo>
+<hr>
+<app-hijo [objetoEnElhijo]="objetoDelPadre" (evtEmitter)="recogerInfo($event)"></app-hijo>
