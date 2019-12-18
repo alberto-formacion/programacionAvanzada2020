@@ -48,6 +48,7 @@ export class EquiposComponent implements OnInit {
   }
 
   recogerEquipo(equipo: Equipo) {
+    console.log(equipo);
     this.equipoSeleccionado = equipo;
   }
 }
