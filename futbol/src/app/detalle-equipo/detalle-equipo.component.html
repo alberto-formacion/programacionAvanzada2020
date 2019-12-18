@@ -1,0 +1,27 @@
+<div *ngIf="equipo" class="jumbotron">
+  <div class="row">
+  <div class="col-sm-6"><img [src]="equipo.imagen" /></div>
+  <div class="col-sm-6">
+    <div class="row mb-3">
+      <div class="col-sm-4">Nombre:</div>
+      <div class="col-sm-8">{{equipo.nombre}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4">Ciudad:</div>
+        <div class="col-sm-8">{{equipo.ciudad}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4">Año Fundacion:</div>
+        <div class="col-sm-8">{{equipo.fundacion}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4">Socios:</div>
+        <div class="col-sm-8">{{equipo.numSocios}}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4">Peñas:</div>
+        <div class="col-sm-8">{{equipo.numPenas}}</div>
+    </div>
+  </div>
+</div>
+</div>

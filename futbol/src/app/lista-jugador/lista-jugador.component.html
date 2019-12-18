@@ -1,0 +1,14 @@
+<div class="mb-3" *ngIf="jugadores && jugadores.length > 0">
+  <label for="buscador">Buscar Jugador </label>
+  <input type="text" class="form-control" id="buscador" [(ngModel)]="jugadorBuscar">
+</div>
+<div>
+  <ul *ngIf="jugadores" class="list-group">
+    <li 
+      class="list-group-item" 
+      *ngFor="let jugador of jugadores | buscadorJugador: jugadorBuscar"
+      (click)="mostrarInfoJugador(jugador)">
+        {{jugador.nombre}} {{jugador.apellidos}}
+    </li>
+  </ul>
+</div>

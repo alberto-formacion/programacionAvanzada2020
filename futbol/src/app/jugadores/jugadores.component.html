@@ -1,0 +1,5 @@
+<div class="row pt-5">
+    <app-lista-equipo class="col-sm-4 mt-3" (evtEmitter)="recogerEquipo($event)"></app-lista-equipo>
+    <app-lista-jugador class="col-sm-4 mt-3" [jugadores]="jugadores" (evtEmitter)="recogerJugador($event)"></app-lista-jugador>
+    <app-detalle-jugador class="col-sm-4 mt-3" [jugador]="jugadorSeleccionado"></app-detalle-jugador>
+</div>
